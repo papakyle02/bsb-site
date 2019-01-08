@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Khand');
+
+.header-container {
+    // background-color: rgb(131, 131, 233);
+    height: 15vh;
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    border-bottom: red 5px solid;
+    ul {
+        padding-right: 20px;
+        display: flex;
+        overflow: hidden;
+        a {
+            text-decoration: none;
+            color: #044F8F;
+        }
+        img {
+            height: 40px;
+        }
+        li {
+            font-family: 'Khand', sans-serif;
+            text-decoration: none;
+            margin-left: 35px;
+            color: rgb(243, 56, 56);
+            font-size: 40px;
+            p {
+                font-size: 10px;
+            }
+        }
+        .active {
+            color: red;
+        }
+        
+    }
+    
+    img {
+        height: 80px;
+        padding-left: 20px;
+    }
+
+    
+}
