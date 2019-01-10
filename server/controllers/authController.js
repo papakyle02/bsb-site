@@ -61,11 +61,10 @@ module.exports = {
     });
     },
     getUser: (req, res) => {
-            res.json({ user: req.session.user })
-        
+            res.json(req.session.user )
     },
     logout: (req, res) => {
-        req.session.destroy()
+        req.session.destroy();
         res.send();
     }
 }

@@ -1,4 +1,7 @@
-.landing-container {
+.store-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
     max-width: 1000px;
     height: 85vh;
     margin: 0 auto;

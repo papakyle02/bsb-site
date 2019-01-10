@@ -2,7 +2,6 @@ create table if not exists customers(
     id serial unique,
     name varchar(255) not null,
     email varchar(255) not null,
-    password varchar(100) not null,
     image text,
     auth0_id text
 );
@@ -20,11 +19,10 @@ create table if not exists purchases(
 );
 
 create table if not exists cart_items(
-    id serial unique,
-    name varchar(255),
-    quantity int,
-    total_price int,
-    image text
+    id serial primary key,
+    customer_id text,
+    product_id int references products(id),
+    quantity int
 );
 
 create table if not exists line_items(

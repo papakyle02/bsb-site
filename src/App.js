@@ -7,12 +7,25 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { getProducts } from './ducks/reducer';
 import { withRouter } from 'react-router-dom';
+import { setUser } from './ducks/reducer';
 
 class App extends Component {
 
   componentDidMount(){
+    this.productsToRedux();
+    this.userToRedux();
+  }
+
+  productsToRedux = () => {
     axios.get('/api/products').then( products => {
       this.props.getProducts(products.data);
+    })
+  }
+  userToRedux = () => {
+    axios.get('/auth/get_customer').then( user => {
+        console.log('user from db', user)
+        this.props.setUser(user.data)
+        console.log('this.props.setUser(user.data)', this.props.setUser(user.data))
     })
   }
 
@@ -35,4 +48,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getProducts })(App));
+export default withRouter(connect(mapStateToProps, { getProducts, setUser })(App));

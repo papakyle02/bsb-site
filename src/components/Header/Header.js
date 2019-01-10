@@ -5,15 +5,9 @@ import './Header.scss';
 import { withRouter } from 'react-router';
 import axios from 'axios';
 import { setUser } from '../../ducks/reducer';
+import cart from './cart-148964.svg';
 
 class Header extends Component {
-
-    componentDidMount(){
-        axios.get('/auth/get_customer').then( user => {
-            console.log('user from db', user)
-            this.props.setUser(user.data)
-        })
-    }
 
     login = () => {
         const redirectUri = encodeURIComponent(window.location.origin + '/auth/callback')
@@ -28,6 +22,9 @@ class Header extends Component {
                     <li><NavLink activeClassName='active' exact to="/">Home</NavLink></li>
                     <li><NavLink activeClassName='active' to="/store">Store</NavLink></li>
                     <li><NavLink activeClassName='active' to="/social">Social</NavLink></li>
+                    <li>
+                        <NavLink to="/cart"><img src={cart} alt="shopping cart"/></NavLink>
+                    </li>
                     <li onClick={this.login}>
                         <img src="https://png.pngtree.com/svg/20151204/_home_login_icon_543863.png"/>
                     </li>

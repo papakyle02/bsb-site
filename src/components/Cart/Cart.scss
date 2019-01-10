@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Khand');
+
+.cart-container {
+    max-width: 1000px;
+    height: 85vh;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.603);
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .no-items {
+        font-size: 64px;
+        font-family: 'Khand', sans-serif;
+        color: #044F8F;
+    }
+}

@@ -23,9 +23,14 @@ app.use(session({
     }
 }))
 
-app.get('/api/products', productsController.getProducts)
 app.get('/auth/callback', authController.login)
 app.get('/auth/get_customer', authController.getUser)
+
+
+app.get('/api/products', productsController.getProducts)
+app.post('/api/products', productsController.addToCart)
+
+app.get('/api/cart/:auth0_id', productsController.getCart)
 
 const PORT = 4000
 
