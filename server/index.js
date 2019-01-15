@@ -29,8 +29,10 @@ app.get('/auth/get_customer', authController.getUser)
 
 app.get('/api/products', productsController.getProducts)
 app.post('/api/products', productsController.addToCart)
+app.delete('/api/products/:id', productsController.deleteProduct)
 
 app.get('/api/cart/:auth0_id', productsController.getCart)
+app.put('/api/cart', productsController.editQty)
 
 const PORT = 4000
 

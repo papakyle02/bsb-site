@@ -32,5 +32,22 @@ module.exports = {
         }).catch(error => {
             console.log('error on getCart back end', error);
         });
+    },
+    deleteProduct: (req, res) => {
+        let { id } = req.params
+        console.log(id);
+        req.app.get('db').delete_product(id).then( response => {
+            console.log('delete successful back end')
+        }).catch( error => {
+            console.log('error in deleteProduct on productsController', error);
+        })
+    },
+    editQty: (req, res) => {
+        let { id, qty, auth0_id } = req.body
+        console.log('req.body on editQty', req.body)
+        req.app.get('db').edit_quantity([id, qty, auth0_id]).then( response => {
+            console.log('quantity edited successfully back end')
+            res.status(200).send(response);
+        })
     }
 }

@@ -25,11 +25,12 @@ create table if not exists cart_items(
     quantity int
 );
 
-create table if not exists line_items(
-    purchases_id int references purchases(id),
-    products_id int references products(id),
-    quantity int
-);
+create table if not exists ratings(
+    id serial,
+    product_id int,
+    customer_id text,
+    rating int,
+)
 
 insert into products(name, price, image) values
 ('Black Gloves', 30, 'https://images-na.ssl-images-amazon.com/images/I/81PK48VZqML._SL1500_.jpg'),

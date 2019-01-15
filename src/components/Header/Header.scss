@@ -19,9 +19,7 @@
             text-decoration: none;
             color: #044F8F;
         }
-        img {
-            height: 40px;
-        }
+        
         li {
             font-family: 'Khand', sans-serif;
             text-decoration: none;
@@ -30,6 +28,10 @@
             font-size: 40px;
             p {
                 font-size: 10px;
+            }
+            img {
+                height: 40px;
+                fill: #044F8F;
             }
         }
         .active {

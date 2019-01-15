@@ -6,6 +6,7 @@ import Store from './components/Store/Store';
 import Social from './components/Social/Social';
 import Cart from './components/Cart/Cart';
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
+import CheckoutForm from './CheckoutForm';
 
 export default (
     <Switch>
@@ -14,6 +15,7 @@ export default (
         <Route path='/social' component={Social}/>
         {/* <Route path='/login' component={Login}/> */}
         <Route path='/cart' component={Cart}/>
+        <Route path='/checkout' component={CheckoutForm}/>
         {/* <Route path='/confirmation' component={OrderConfirmation}/> */}
     </Switch>
 )

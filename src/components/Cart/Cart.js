@@ -4,6 +4,7 @@ import './Cart.scss';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getCart } from '../../ducks/reducer';
+import { NavLink } from 'react-router-dom';
 
 class Cart extends Component {
 
@@ -24,16 +25,23 @@ class Cart extends Component {
         console.log('cartProducts on Cart.js', this.props.cartProducts)
         return (
             <div className='cart-container'>
+            <NavLink to="/checkout">Checkout</NavLink>
                 {
-                    this.props.cartProducts
+                    this.props.cartProducts.length > 0
                     ? this.props.cartProducts.map( product => {
                         return <CartProduct 
                             key={product.id}
-                            id={product.id}
+                            id={product.cart_id}
                             name={product.name}
                             image={product.image}
                             price={product.price} 
+                            setCart={this.setCart.bind(this)}
+                            user={{auth0_id: this.props.user.auth0_id}}
+                            getCart={this.props.getCart}
+                            quantity={product.quantity}
                         />
+                    }).sort((a,b) => {
+                        return a.key - b.key
                     })
                     : <div className="no-items">
                         <h1>No items in cart</h1>
