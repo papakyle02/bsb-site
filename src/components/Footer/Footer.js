@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Footer.scss'
 
 export default class Footer extends Component {
     render() {
@@ -6,11 +7,11 @@ export default class Footer extends Component {
             <div className="footer-container">
                 <ul>
                     <li>About</li>
-                    <li>.</li>
+                    <li> | </li>
                     <li>Contact</li>
-                    <li>.</li>
+                    <li> | </li>
                     <li>Terms of Use</li>
-                    <li>.</li>
+                    <li> | </li>
                     <li>Privacy Policy</li>
                 </ul>
             </div>

@@ -35,7 +35,7 @@ module.exports = {
                     req.session.user = {
                         name: users[0].name,
                         email: users[0].email,
-                        picture: users[0].picture,
+                        image: users[0].image,
                         auth0_id: users[0].auth0_id
                     }
                     res.redirect('/')
@@ -61,7 +61,7 @@ module.exports = {
     });
     },
     getUser: (req, res) => {
-            res.json(req.session.user )
+            res.json(req.session.user)
     },
     logout: (req, res) => {
         req.session.destroy();

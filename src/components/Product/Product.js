@@ -39,6 +39,7 @@ class Product extends Component {
                     <p>{price}</p>
                     <button onClick={() => this.addToCart(id)}>Add to Cart</button>
                     <Rating
+                    // readonly={true}
                     stop={100}
                     step={20}
                     fractions={2}

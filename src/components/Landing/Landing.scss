@@ -1,7 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Khand');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
 .landing-container {
     max-width: 1000px;
-    height: 85vh;
+    height: 77vh;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.603);
     overflow-y: hidden;
+    .ad-container {
+        // background-color: rgb(163, 64, 64);
+        height: 37vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .ad1 {
+        height: 100%;
+        width: 50%;
+        img {
+            max-width: 100%;
+        }        
+    }
+    .ad2 {
+        padding: 75px;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        background-color: white;
+        // border: red solid 5px;
+        h1 {
+            padding: 5px;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 50px;
+            // stroke: #044F8F;
+            // fill: #E41A3A;
+            // -webkit-text-stroke-width: 1px;
+            // -webkit-text-stroke-color:#E41A3A;
+            // -webkit-text-fill-color: rgba(0, 0, 255, 0);
+            // text-justify: left;
+            color: #E41A3A;
+            }
+    }
 }

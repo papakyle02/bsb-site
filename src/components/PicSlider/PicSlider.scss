@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+.slider-pic1, .slider-pic2, .slider-pic3 {
+    position: relative;
+    img {
+        max-height: 40vh;
+        width: 50%;
+        margin: 0 auto;
+        transform: scale(2);
+    }
+    > h1 {
+        position: absolute;
+        color: white;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        background-color: rgba(255, 0, 0, 0.733);
+        padding: 10px;
+    }
+}
+
+.slider-pic1 > h1 {
+    bottom: 0;
+    left: 0;
+}
+.slider-pic2 > h1 {
+    top: 0;
+    left: 0;
+}
+.slider-pic3 > h1 {
+    top: 0;
+    right: 0;
+}

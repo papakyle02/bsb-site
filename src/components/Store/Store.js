@@ -27,7 +27,8 @@ class Store extends Component {
 
 const mapStateToProps = state => {
     return {
-        productList: state.productList
+        productList: state.productList,
+        cartProducts: state.cartProducts
     }
 }
 

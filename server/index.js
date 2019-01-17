@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const productsController = require('./controllers/productsController');
 const authController = require('./controllers/authController');
+const nodemailer = require('./controllers/nodemailer');
 require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 const app = express();
 
@@ -33,6 +35,23 @@ app.delete('/api/products/:id', productsController.deleteProduct)
 
 app.get('/api/cart/:auth0_id', productsController.getCart)
 app.put('/api/cart', productsController.editQty)
+
+app.post('/nodemailer', nodemailer.send)
+
+app.post('/stripe', (req,res)=>{
+    const {token, amount} = req.body;
+    stripe.charges.create({
+        source: token.id, 
+        amount, 
+        currency: 'usd',
+        description: 'whatever'
+    },
+        (error, response)=>{
+            error
+            ?res.status(500).send({error})
+            :res.status(200).send({response})
+        })
+})
 
 const PORT = 4000
 

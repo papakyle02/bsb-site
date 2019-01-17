@@ -9,8 +9,32 @@
     justify-content: space-between;
     align-items: center;
     overflow-x: hidden;
-    border-bottom: red 5px solid;
+    border-bottom: #E41A3A 5px solid;
     background-color: white;
+    .site-title {
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-size: 20px;
+            color: #044F8F;
+        }
+    }
+    .logo-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 375px;
+        h1 {
+            font-family: 'Khand', sans-serif;
+            font-size: 50px;
+            // stroke: #044F8F;
+            // fill: #E41A3A;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #E41A3A;;
+            -webkit-text-fill-color: white;
+            
+        }
+    }
     ul {
         padding-right: 20px;
         display: flex;
@@ -21,6 +45,10 @@
         }
         
         li {
+            .profile-image {
+                border-radius: 50%;
+                border: 2px solid #044F8F; 
+            }
             font-family: 'Khand', sans-serif;
             text-decoration: none;
             margin-left: 35px;
@@ -35,7 +63,26 @@
             }
         }
         .active {
-            color: red;
+            color: #E41A3A;
+        }
+        .li-cart-container {
+            position: relative;
+            div {
+                background-color: #E41A3A;
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    color: white;
+                    font-size: 15px;
+                }
+            }
         }
         
     }
