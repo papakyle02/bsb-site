@@ -31,7 +31,7 @@ class Cart extends Component {
                     ? this.props.cartProducts.map( product => {
                         return <CartProduct 
                             key={product.id}
-                            id={product.cart_id}
+                            cart_id={product.cart_id}
                             name={product.name}
                             image={product.image}
                             price={product.price} 
@@ -47,6 +47,9 @@ class Cart extends Component {
                         <h1>No items in cart</h1>
                       </div>
                 }
+                
+                <div>
+                </div>
             </div>
         )
     }

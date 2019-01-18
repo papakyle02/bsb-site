@@ -10,14 +10,19 @@ module.exports = {
         const { auth0_id, product_id } = req.body
         req.app.get('db').get_cart([auth0_id]).then( cart => {
             console.log('cart', cart);
+            console.log(req.body)
             const productIndex = cart.findIndex( product => {
                 return product.id === product_id
             })
             if(productIndex === -1){
-                req.app.get('db').add_product([auth0_id, product_id])
+                req.app.get('db').add_product([auth0_id, product_id, req.session.user.auth0_id]).then( response => {
+                    res.status(200).send(response);
+                })
             } else {
                 let newQuantity = cart[productIndex].quantity + 1
-                req.app.get('db').add_qty([newQuantity, cart[productIndex].cart_id]);
+                req.app.get('db').add_qty([newQuantity, cart[productIndex].cart_id, req.session.user.auth0_id]).then(response => {
+                    res.status(200).send(response);
+                })
             }
         }).catch( error => {
             console.log('error in addToCart', error);
@@ -36,8 +41,10 @@ module.exports = {
     deleteProduct: (req, res) => {
         let { id } = req.params
         console.log(id);
-        req.app.get('db').delete_product(id).then( response => {
-            console.log('delete successful back end')
+        // console.log('req.session on delete', req.session)
+        req.app.get('db').delete_product([id, req.session.user.auth0_id]).then( response => {
+            console.log('delete successful back end', response)
+            res.status(200).send(response)
         }).catch( error => {
             console.log('error in deleteProduct on productsController', error);
         })

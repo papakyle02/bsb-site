@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Rating from 'react-rating';
 import starEmpty from './starempty.svg';
 import starFull from './starfull.svg';
+import { getCart } from '../../ducks/reducer';
 
 class Product extends Component {
     constructor(){
@@ -21,6 +22,7 @@ class Product extends Component {
             product_id: productId
         }
         axios.post('/api/products', cartBody).then(response => {
+            this.props.getCart(response.data);
             console.log('cartItem added to db', response)
         })
     }
@@ -30,14 +32,14 @@ class Product extends Component {
     }
 
     render() {
-        console.log('productList on Product', this.props.productList)
+        // console.log('productList on Product', this.props.productList)
         const { name, image, price, id } = this.props
         return(
             <div className='product-container' key={id}>
-                    <h2>{name}</h2>
                     <img src={image} alt={name}/>
-                    <p>{price}</p>
-                    <button onClick={() => this.addToCart(id)}>Add to Cart</button>
+                    <h2>{name}</h2>
+                    <p>${price}</p>
+                    <div id='product-button' onClick={() => this.addToCart(id)}><h3>Add to Cart</h3></div>
                     <Rating
                     // readonly={true}
                     stop={100}
@@ -60,4 +62,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Product)
+export default connect(mapStateToProps, { getCart })(Product)

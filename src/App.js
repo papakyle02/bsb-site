@@ -14,6 +14,7 @@ class App extends Component {
   componentDidMount(){
     this.productsToRedux();
     this.userToRedux();
+
   }
 
   productsToRedux = () => {
@@ -44,7 +45,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    productList: state.productList
+    productList: state.productList,
+    cartProducts: state.cartProducts,
+    user: state.user
   }
 }
 
